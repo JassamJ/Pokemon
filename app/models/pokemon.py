@@ -1,5 +1,6 @@
 from app import mongo
 from app.models.super_clase import SuperClase
+from bson import ObjectId
 
 class Pokemon(SuperClase):
     def __init__(self):
