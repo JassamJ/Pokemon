@@ -9,7 +9,7 @@ class Pokemon(SuperClase):
     def create(self, data):
         raise NotImplementedError("Los pokemons no se pueden crear")
     
-    def create(self, object_id):
+    def delete(self, object_id):
         raise NotImplementedError("Los pokemons no se pueden eliminar")
     
     def update(self, object_id, data):

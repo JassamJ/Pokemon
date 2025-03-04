@@ -1,29 +1,23 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
+from app.models.factory import modelFactory
+from bson import ObjectId
 from app.tools.response_manager import ResponseManager
-from bson import ObjectId
-from app.models.pokemon import modelFactory, ValidationError 
-from bson import ObjectId
+from flask_jwt_extended import jwt_required
 
 bp = Blueprint('pokemons', __name__, url_prefix='/pokemons')
 RM = ResponseManager()
-P_MODEL = modelFactory
-#crear
-@bp.route('/get all', methods=['POST'])
-def create():
-    try:
-        data = request.json
-        fp = P_MODEL.create(data)
-        return RM.success({"_id": fp})
-    except ValidationError as err:
-        print(err)
-        return RM.error("Es necesaeio enviar todos los parametros")
-#Eliminar
-@bp.route("/<string:id>", methods=["DELETE"])
-def delete(id):
-    P_MODEL.delete(ObjectId(id))
-    return RM.success("Pokemon eliminado con exito")
+pokemon_model = modelFactory.get_model("pokemons")
+
+#get one
+@bp.route('/get/<string:pokemon_id>', methods=["GET"])
+@jwt_required()
+def get_pokemon(pokemon_id):
+    pokemon = pokemon_model.find_by_id(ObjectId(pokemon_id))
+    return RM.success(pokemon)
+
 #get all
-@bp.route("/<string:user_id>", methods=["GET"])
-def get_all(user_id):
-    data = P_MODEL.find_all()
+@bp.route('/', methods=["GET"])
+@jwt_required()
+def get_all():
+    data = pokemon_model.find_all()
     return RM.success(data)

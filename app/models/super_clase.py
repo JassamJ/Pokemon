@@ -5,13 +5,17 @@ class SuperClase:
         self.collection = mongo.db[collection]
 
     def finde_all(self):
-        pokemons = Pokemon.collection.find()
-        return list(pokemons)
+        data = list(self.collection.find())
+        for datum in data:
+            datum["_id"] = str(datum["_id"])
+        return data
     
     def find_by_id(self, object_id):
         datum = self.collection.find_one({
             "_id": object_id
         })
+        if datum:
+            datum["_id"] = str(datum["_id"])
         return datum
     
     def create(self, data):
@@ -24,6 +28,10 @@ class SuperClase:
         }, {
             "$set": data
         })
+        datum = self.collection.find_one({
+            "_id": object_id
+        })
+        datum["_id"] = str(datum["_id"])
         return datum
 
     def delete(self, object_id):
