@@ -4,7 +4,7 @@ class SuperClase:
     def __init__(self, collection):
         self.collection = mongo.db[collection]
 
-    def finde_all(self):
+    def find_all(self):
         data = list(self.collection.find())
         for datum in data:
             datum["_id"] = str(datum["_id"])

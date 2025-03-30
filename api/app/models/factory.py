@@ -1,5 +1,5 @@
 from app.models.pokemon import Pokemon
-from app.models.p_fav import PokemonFavorites
+from app.models.P_fav import PokemonFavorites
 from app.models.users import Users
 
 class modelFactory:
@@ -8,7 +8,7 @@ class modelFactory:
         models = {
             "users": Users,
             "pokemons": Pokemon,
-            "pokemon_fav": PokemonFavorites
+            "pokemon_favorites": PokemonFavorites
         }
         if collection_name in models:
             return models[collection_name]()

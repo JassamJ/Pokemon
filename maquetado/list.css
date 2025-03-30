@@ -1,0 +1,71 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(201, 197, 197);
+  }
+  
+  .container {
+    display: block;
+    justify-content: center;
+    margin: 10px;
+  }
+  
+  .card {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .info-pkmn {
+    border-radius: 15px 0px 0px 15px;
+    background-color: white;
+    width: 40%;
+  }
+  
+  .name-pkmn {
+    font-size: 25px;
+    color: black;
+    margin: 7px;
+  }
+  
+  .id-pkmn {
+    font-size: 20px;
+    color: rgb(80, 79, 79);
+    margin: 7px;
+  }
+  
+  .tags {
+    margin: 5px;
+  }
+  
+  .type-pkmn {
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    width: fit-content;
+  }
+  
+  .image-pkmn {
+    border-radius: 0px 15px 15px 0px;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+  }
+  
+  .image-pkmn > img {
+    width: 150px;
+  }
+  
+  @media (max-width: 400px) {
+      .name-pkmn {
+          font-size: 15px;
+      }
+  
+      .id-pkmn {
+          font-size: 10px;
+      }
+  }

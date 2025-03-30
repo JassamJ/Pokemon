@@ -7,11 +7,11 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 bp = Blueprint('favorite_pokemons', __name__, url_prefix='/favorite_pokemons')
 RM = ResponseManager()
-FP_MODEL = modelFactory
-FP_SCHEMA = PokemonFavoriteSchema
+FP_MODEL = modelFactory().get_model("pokemon_favorites")
+FP_SCHEMA = PokemonFavoriteSchema()
 
 #crear
-@bp.route('/get all', methods=['POST'])
+@bp.route('/create', methods=['POST'])
 @jwt_required()
 def create():
     user_id = get_jwt_identity()
@@ -33,9 +33,9 @@ def delete(id):
     return RM.success("Pokemon eliminado con exito")
 
 #get all
-@bp.route("/<string:user_id>", methods=["GET"])
+@bp.route("/", methods=["GET"])
 @jwt_required()
-def get_all(user_id):
+def get_all():
     user_id = get_jwt_identity()
     data = FP_MODEL.find_all(user_id)
     return RM.success(data)

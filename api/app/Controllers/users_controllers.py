@@ -19,11 +19,11 @@ def login():
     email = data.get("email", None)
     password = data.get("password", None)
     if not email or not password:
-        return RM.error("Es necesario enviar todas las crendenciales", 400)
-    user = user_model.get_by_email_password(email, password)
+        return RM.error("Es necesario enviar todas las crendenciales")
+    user = user_model.get_by_email(email)
     if not EM.compare_hashes(password, user["password"]):
         return RM.error("credenciales invalidas")
-    return RM.success({"user":user, "token": create_access_token((user["_id"]))})
+    return RM.success({"user":user, "token": create_access_token(user["_id"])})
     
 @bp.route("/register", methods=["POST"])
 def register():
