@@ -1,35 +1,66 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* fondo con imagen */
+  .fondo {
     height: 100vh;
-    background-color: #f4f4f4;
-}
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    background-image: url('https://images5.alphacoders.com/614/614955.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* overlay sobre el fondo */
+  .overlay {
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 300px;
     text-align: center;
-}
-input {
+  }
+  
+  input, button {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin-top: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-}
-button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #ff007b;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  /* Ajusta la imagen */
+.image-pkmn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-button:hover {
-    background: #0056b3;
+
+.image-pkmn img {
+  width: 100px; /* Ajusta el tamaño */
+  height: auto;
 }
+  

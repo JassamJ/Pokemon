@@ -3,46 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <linl rel ="stylesheet" href="user_editing.css">
+    <link rel ="stylesheet" href="user_editing.css">
     <title>User Editing</title>
 </head>
-<div class="image-pkmn">
-    <img
-      src="https://th.bing.com/th/id/R.09a6ae937a6d9ef5cd10d132b59d6f5d?rik=8Wf%2bQNejqAkwIQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f4%2fPokemon-Pokeball-PNG-File.png&ehk=V%2f9byi3M%2bsgwt9knLB1GOoHBn8LkyKl6pt%2b4RSsHy%2bw%3d&risl=&pid=ImgRaw&r=0";
-      alt="";
-      style="width: 150px; height: auto"
-    />
-</div>
 <body>
-    <div class="container">
-        <h2>Edit Profile</h2>
-    </div>
-
-    <div class="container">
-        <div class="card">
-            <input type="text" placeholder="New Username">
+    <div class="fondo">
+        <div class="overlay">
+            <div class="container">
+                <img src="https://pngimg.com/uploads/pokeball/pokeball_PNG29.png" 
+                alt="" 
+                style="width: 150px; height: auto;" />
+                <h2>Edit Profile</h2>
+            </div>
+            <div class="container">
+                <form>
+                    <input type="text" placeholder="New Username" required />
+                </form>
+            </div>
+            <div class="container">
+                <form>
+                    <input type="password" placeholder="New Password" required />
+                </form>
+            </div>
+            <div class="container">
+                <form>
+                    <input type="password" placeholder="Repeat Password" required />
+                </form>
+            </div>
+            <div class="container">
+                <form>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
         </div>
-
-    <div class="container">
-        <div class="card">
-            <input type="password" placeholder="New Password">
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="card">
-            <form>
-            <input type="password" placeholder="Repeat Password">
-            </form>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="button">
-        <form>
-            <button type="submit">Save Changes</button>
-        </form>
-    </div>
     </div>
 </body>
 </html>
